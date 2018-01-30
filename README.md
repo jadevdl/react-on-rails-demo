@@ -1,25 +1,16 @@
-# README
+# React on Rails Demo (ror-demo)
+## Notes on how the apps were initially created
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Rails App
 
-Things you may want to cover:
+The following outlines how to create and dockerize a brand new Rails application.
 
-* Ruby version
+* Create the new Rails React app via a ruby-node Docker Image `docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app starefossen/ruby-node /bin/bash` 
 
-* System dependencies
+Then run the following commands within the bash session of the Docker Container:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# react-on-rails-demo
+`gem install --no-rdoc --no-ri rails -v 5.1.4
+rails new ror-demo --webpack=react --skip-bundle #ignore missing gem file error
+cd ror-demo && bundle
+rails webpacker:install
+rails webpacker:install:react`
