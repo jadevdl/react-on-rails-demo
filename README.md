@@ -13,6 +13,7 @@ Then run the following commands within the bash session of the Docker Container:
 * `cd ror-demo && bundle`
 * `rails webpacker:install`
 * `rails webpacker:install:react`
+* `bin/bundle binstubs webpacker`
 
 Exit out of the container and build the Docker image using `docker-compose build`. 
 Run the app using `docker-compose up`

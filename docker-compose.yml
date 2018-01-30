@@ -23,7 +23,7 @@ services:
     #   - "80:80"
     volumes:
       - .:/home/app/ror-demo
-    command: bin/webpack-dev-server
+    command: sh -c 'rm -rf public/packs/* || true && bundle exec rake react_on_rails:locale && bin/webpack -w'
 #   postgres:
 #     image: postgres:9.6.6
 #     container_name: tododb
