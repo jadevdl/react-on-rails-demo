@@ -12,6 +12,18 @@ services:
       - "80:80"
     volumes:
       - .:/home/app/ror-demo
+  ror-demo-webpack-dev-server:
+    container_name: ror-demo-webpack-dev-server
+    build: .
+    depends_on:
+      - ror-demo
+    # environment:
+      # - PASSENGER_APP_ENV=development
+    # ports:
+    #   - "80:80"
+    volumes:
+      - .:/home/app/ror-demo
+    command: bin/webpack-dev-server
 #   postgres:
 #     image: postgres:9.6.6
 #     container_name: tododb
