@@ -1,0 +1,32 @@
+version: '2'
+services:
+  ror-demo:
+    container_name: ror-demo
+    build: .
+    # depends_on:
+    #   - postgres
+    #   - ror-demo_setup
+    environment:
+      - PASSENGER_APP_ENV=development
+    ports:
+      - "80:80"
+    volumes:
+      - .:/home/app/ror-demo
+#   postgres:
+#     image: postgres:9.6.6
+#     container_name: tododb
+#     environment:
+#       - POSTGRES_PASSWORD=mysecretpassword
+#       - POSTGRES_USER=todoapi
+#       - POSTGRES_DB=todoapi_development
+#     volumes_from:
+#       - postgres_data
+#   postgres_data:
+#       container_name: tododb_data
+#       image: postgres:9.6.6
+#       volumes:
+#         - pgdata:/var/lib/postgresql/data
+#       command: /bin/true
+# volumes:
+#   pgdata:
+#     external: true

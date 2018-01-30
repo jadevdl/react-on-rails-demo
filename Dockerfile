@@ -8,8 +8,15 @@ CMD ["/sbin/my_init"]
 
 # Additional packages : we are adding the netcat package so we can 
 # make pings to the database service 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+
+# Install the things
 RUN apt-get update && apt-get install -y -o Dpkg::Options::="--force-confold" netcat 
+RUN apt-get install yarn
 RUN apt-get install -y tzdata
+RUN apt-get install -y nodejs
 
 # Enable Nginx and Passenger 
 RUN rm -f /etc/service/nginx/down 
@@ -33,6 +40,7 @@ RUN echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc"
 ADD Gemfile /tmp/ 
 ADD Gemfile.lock /tmp/ 
 RUN bundle install 
+RUN yarn
 
 # Copy application into the container and use right permissions: passenger 
 # uses the app user for running the application 
