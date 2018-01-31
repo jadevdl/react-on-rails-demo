@@ -17,3 +17,10 @@ Then run the following commands within the bash session of the Docker Container:
 
 Exit out of the container and build the Docker image using `docker-compose build`. 
 Run the app using `docker-compose up`
+
+## React on Rails demo using Docker Compose
+
+How to get the app up and running:
+
+* Run the app using `docker-compose up`
+* Navigate to [http://localhost/hello_world](http://localhost/hello_world)
