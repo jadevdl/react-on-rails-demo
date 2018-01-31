@@ -25,7 +25,7 @@ export default class HelloWorld extends React.Component {
     return (
       <div>
         <h3>
-          React Rails V10 TTT
+          React on Rails
           <br/>
           Hello, {this.state.name}!
         </h3>
