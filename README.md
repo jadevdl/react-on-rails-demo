@@ -1,4 +1,13 @@
 # React on Rails Demo (ror-demo)
+
+## React on Rails demo using Docker Compose
+
+How to get the app up and running on your development machine:
+
+* Install Docker client
+* Run the app using `docker-compose up`
+* Navigate to [http://localhost/hello_world](http://localhost/hello_world)
+
 ## Notes on how the apps were initially created
 ## Rails App
 
@@ -9,18 +18,8 @@ The following outlines how to create and dockerize a brand new Rails application
 Then run the following commands within the bash session of the Docker Container:
 
 * `gem install --no-rdoc --no-ri rails -v 5.1.4`
-* `rails new ror-demo --webpack=react --skip-bundle #ignore missing gem file error`
-* `cd ror-demo && bundle`
+* `rails new ror-demo`
+* `cd ror-demo`
 * `rails webpacker:install`
 * `rails webpacker:install:react`
 * `bin/bundle binstubs webpacker`
-
-Exit out of the container and build the Docker image using `docker-compose build`. 
-Run the app using `docker-compose up`
-
-## React on Rails demo using Docker Compose
-
-How to get the app up and running:
-
-* Run the app using `docker-compose up`
-* Navigate to [http://localhost/hello_world](http://localhost/hello_world)
